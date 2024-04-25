@@ -6,7 +6,7 @@ const cors = require('cors');
 const app = express();
 
 // Middleware to enable CORS
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({ origin: ['http://localhost:3000', 'https://next-auth-example.vercel.app'] }));
 
 // Middleware for JWT validation
 const jwtCheck = jwt({
@@ -27,7 +27,7 @@ app.get('/api/public/greeting', (req, res) => {
 
 // Authenticated greeting endpoint
 app.get('/api/authenticated/greeting', jwtCheck, (req, res) => {
-  const name = req.user && req.user.name ? req.user.name : 'unknown name';
+  const name = req.auth && req.auth.name ? req.auth.name : 'unknown name';
   res.json({ greeting: `Hello, ${name}!` });
 });
 
