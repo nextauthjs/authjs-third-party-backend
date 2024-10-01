@@ -63,7 +63,7 @@ export default async function handler(req) {
     });
   }
 
-  const name = verifiedToken.payload.name || "unknown name";
+  const name = verifiedToken.payload.preferred_username || "unknown name";
   return Response.json(
     { greeting: `Hello, ${name}!` },
     { headers: corsHeaders(origin) }
