@@ -1,0 +1,11 @@
+{
+  "name": "authjs-third-party-backend",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "author": "Falco Winkler",
+  "license": "ISC",
+  "dependencies": {
+    "jose": "^5.9.3"
+  }
+}
